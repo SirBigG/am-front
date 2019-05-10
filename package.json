@@ -1,0 +1,37 @@
+{
+  "name": "am-static",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "export": "next export",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirBigG/"
+  },
+  "author": "Andrii Hots",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SirBigG/"
+  },
+  "homepage": "https://github.com/SirBigG/",
+  "description": "",
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "express": "^4.16.4",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.1.0",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-simple-tree-menu": "^1.0.5",
+    "reactstrap": "^8.0.0",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {}
+}

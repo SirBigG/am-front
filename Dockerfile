@@ -1,6 +1,11 @@
-FROM node:8.15.1-alpine
+FROM node:11.14.0-alpine
 
-RUN npm install -g gatsby-cli && \
-    apk --no-cache add git
+RUN mkdir /app
 
-WORKDIR /app/app
+ADD package.json /app
+
+WORKDIR /app
+
+RUN apk --no-cache add git &&\
+    npm install
+

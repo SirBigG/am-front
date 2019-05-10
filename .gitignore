@@ -1,0 +1,6 @@
+node_modules
+static
+npm-debug.log
+package-lock.json
+webpack.production.js
+.next
