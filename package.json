@@ -1,37 +1,43 @@
 {
-  "name": "am-static",
+  "name": "am-front",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node server.js",
-    "export": "next export",
-    "build": "next build",
-    "start": "next start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SirBigG/"
-  },
-  "author": "Andrii Hots",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SirBigG/"
-  },
-  "homepage": "https://github.com/SirBigG/",
   "description": "",
+  "main": "index.js",
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
-    "express": "^4.16.4",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^8.1.0",
-    "next-redux-wrapper": "^3.0.0-alpha.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.3",
-    "react-simple-tree-menu": "^1.0.5",
-    "reactstrap": "^8.0.0",
-    "redux": "^4.0.1"
+    "bootstrap": "^4.3.1",
+    "fingerprintjs2": "^2.1.0",
+    "jquery": "^3.4.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "popper.js": "^1.15.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "tempusdominus-bootstrap-4": "^5.1.2",
+    "webpack": "^4.38.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "css-loader": "^3.1.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
+    "purgecss": "^1.3.0",
+    "sugarss": "^2.0.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "uglify-js": "^3.6.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build-p": "webpack --optimize-minimize",
+    "watch": "webpack --watch --progress"
+  },
+  "author": "",
+  "license": "ISC"
 }
