@@ -1,3 +1,1 @@
-require("jquery/src/core");
-require("popper.js/dist/popper");
-require("bootstrap/js/src/dropdown");
+require("bootstrap.native/dist/bootstrap-native-v4");
