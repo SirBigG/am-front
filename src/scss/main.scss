@@ -1,3 +1,7 @@
+$green: #00cc67;
+
+$font-family-sans-serif: Roboto, sans-serif;
+
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 
@@ -53,4 +57,49 @@ body {
   main {
     margin-bottom: 65px;
   }
+}
+
+.btn-circle {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn-circle i {
+  position: relative;
+  top: -1px;
+}
+
+.btn-circle-lg {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 1.1rem;
+}
+
+.img-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+
+.second-menu {
+  .nav-link {
+    color: #00cc67;
+  }
+  .nav-link.active {
+    border-bottom: 3px solid #00cc67;
+  }
+  .nav-link:hover {
+    border-bottom: 3px solid #00cc67;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  }
+  .nav-link:hover:after {
+  width: 100%;
+  left: 0;
+}
 }
