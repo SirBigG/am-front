@@ -1,4 +1,4 @@
-require("jquery/src/event/alias");
+// require("jquery/src/event/alias");
 require("jquery/src/event/trigger");
 require("jquery/src/ajax");
 require("jquery/src/attributes/attr");

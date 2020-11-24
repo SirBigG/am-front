@@ -7,5 +7,4 @@ RUN mkdir /app
 WORKDIR /app
 
 RUN apk --no-cache add git python automake make g++
-#    npm install
-
+RUN npm install
