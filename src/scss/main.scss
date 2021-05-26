@@ -97,20 +97,27 @@ body {
 
 
 .second-menu {
+  flex-wrap: nowrap !important;
+  overflow: auto;
+  white-space: nowrap;
   .nav-link {
     color: white;
   }
   .nav-link.active {
-    border-bottom: 3px solid white;
+    border-bottom: 1px solid white;
   }
   .nav-link:hover {
-    border-bottom: 3px solid white;
+    border-bottom: 1px solid white;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
   }
   .nav-link:hover:after {
-  width: 100%;
+  width: 80%;
   left: 0;
 }
+}
+
+.second-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .second-menu-container {
