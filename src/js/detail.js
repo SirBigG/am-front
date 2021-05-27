@@ -2,10 +2,11 @@
 require("jquery/src/event/trigger");
 require("jquery/src/ajax");
 require("jquery/src/attributes/attr");
-require("popper.js/dist/popper");
+// require("popper.js/dist/popper");
 const Fingerprint2 = require("fingerprintjs2/fingerprint2");
 require("bootstrap/js/src/dropdown");
-require("bootstrap/js/src/carousel");
+
+// require("bootstrap/js/src/carousel");
 
 
 function getCookie(name) {
@@ -43,39 +44,35 @@ function usefull(status, post_id) {
 }
 
 function post_view(post_id) {
-    console.log(post_id);
-    Fingerprint2.get(function (components) {
-        "use strict";
-        const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
-            return pair.value;
-        }).join(), 31);
-        $.ajax({
-            type: 'POST',
-            url: '/api/post/view/',
-            beforeSend: function (request) {
-                request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
-            },
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({
-                "fingerprint": fingerprint,
-                "post_id": post_id
-            }),
-            success: function (res) {
-                console.log("success view");
-            }
-            ,
-            error: function (res) {
-                console.log(res);
-            }
-        })
-        ;
-    });
+    $.ajax({
+        type: 'POST',
+        url: '/api/post/view/',
+        beforeSend: function (request) {
+            request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
+        },
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({
+            "post_id": post_id
+        }),
+        success: function (res) {
+            console.log("success view");
+        }
+        ,
+        error: function (res) {
+            console.log(res);
+        }
+    })
+    ;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    let post_id = $('.post_id_value').attr('id');
-    $('body').on('click', '#useful', function () {usefull(true, post_id)});
-    $('body').on('click', '#notuseful', function () {usefull(false, post_id)});
-    post_view(post_id);
+document.addEventListener("DOMContentLoaded", function (event) {
+        let post_id = $('.post_id_value').attr('id');
+        $('body').on('click', '#useful', function () {
+            usefull(true, post_id)
+        });
+        $('body').on('click', '#notuseful', function () {
+            usefull(false, post_id)
+        });
+        post_view(post_id);
     }
 );
