@@ -24,6 +24,8 @@ module.exports = {
     },
     optimization: {
         minimize: true,
+        mangleWasmImports: true,
+        concatenateModules: true,
         minimizer: [new TerserJSPlugin({terserOptions: { output: {comments: false}, toplevel: true}}), new OptimizeCSSAssetsPlugin({})],
     },
     module: {
@@ -72,11 +74,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
