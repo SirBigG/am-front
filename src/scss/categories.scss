@@ -1,3 +1,21 @@
 @import "main";
 
 @import "~bootstrap/scss/card";
+@import "~bootstrap/scss/list-group";
+
+.card-img {
+  filter: brightness(50%);
+}
+
+.text-small {
+  font-size: smaller!important;
+}
+
+.no-decoration {
+  text-decoration: none!important;
+  outline: 0!important;
+}
+
+.no-decoration:hover {
+  color: white!important;
+}

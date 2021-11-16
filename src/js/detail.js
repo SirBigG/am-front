@@ -3,7 +3,7 @@ require("bootstrap/js/src/dropdown");
 
 
 function getCookie(name) {
-    var matches = document.cookie.match(new RegExp(
+    let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
@@ -14,7 +14,7 @@ function usefull(status, post_id) {
         const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
             return pair.value;
         }).join(), 31);
-        httpRequest = new XMLHttpRequest()
+        let httpRequest = new XMLHttpRequest()
         httpRequest.open('POST', '/api/post/useful/')
         httpRequest.setRequestHeader("X-CSRFToken", getCookie("csrftoken"))
         httpRequest.setRequestHeader("Content-Type", "application/json; charset=utf-8")
@@ -37,7 +37,7 @@ function usefull(status, post_id) {
 }
 
 function post_view(post_id) {
-    httpRequest = new XMLHttpRequest()
+    let httpRequest = new XMLHttpRequest()
     httpRequest.open('POST', '/api/post/view/')
     httpRequest.setRequestHeader("X-CSRFToken", getCookie("csrftoken"))
     httpRequest.setRequestHeader("Content-Type", "application/json; charset=utf-8")
