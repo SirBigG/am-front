@@ -19,7 +19,7 @@ module.exports = {
         "j-gallery": './src/js/gallery.js'
     },
     output: {
-        path: __dirname + '/build/',
+        path: '/static/posts/',
         filename: "[name].js"
     },
     optimization: {
