@@ -19,7 +19,7 @@ module.exports = {
         "j-gallery": './src/js/gallery.js'
     },
     output: {
-        path: __dirname + '/build/',
+        path: '/static/posts/',
         filename: "[name].js"
     },
     optimization: {
@@ -72,11 +72,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"

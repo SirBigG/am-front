@@ -1,11 +1,6 @@
-require("jquery/src/event/alias");
-require("jquery/src/event/trigger");
-require("jquery/src/ajax");
-require("jquery/src/attributes/attr");
 require("popper.js/dist/popper");
 const Fingerprint2 = require("fingerprintjs2/fingerprint2");
-require("bootstrap/js/src/dropdown");
-require("bootstrap/js/src/carousel");
+require("bootstrap.native/dist/bootstrap-native-v4");
 
 
 function getCookie(name) {
@@ -20,62 +15,60 @@ function usefull(status, post_id) {
         const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
             return pair.value;
         }).join(), 31);
-        $.ajax({
-            type: 'POST',
-            beforeSend: function (request) {
-                request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
-            },
-            url: '/api/post/useful/',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({
-                "fingerprint": fingerprint,
-                "post_id": post_id,
-                "is_useful": status
-            }),
-            success: function (res) {
-                $('#useful__wrapper').html('<span class="h6 text-success">Дякуємо за відгук! Ваш голос буде враховано при публікації контенту.</span>');
-            },
-            error: function (res) {
-                console.log(res)
+        var http = new XMLHttpRequest();
+        http.open('POST', '/api/post/useful/', true);
+        http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
+        http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        http.onreadystatechange = function () {
+            if (http.readyState === 4 && http.status === 200) {
+                document.getElementById('useful__wrapper').innerHTML = '<span class="h6 text-success">Дякуємо за відгук! Ваш голос буде враховано при публікації контенту.</span>';
+            } else {
+                console.log(http.status);
             }
-        });
+        }
+        http.send(JSON.stringify({
+            "fingerprint": fingerprint,
+            "post_id": post_id,
+            "is_useful": status
+        }));
     });
 }
 
 function post_view(post_id) {
-    console.log(post_id);
     Fingerprint2.get(function (components) {
         "use strict";
         const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
             return pair.value;
         }).join(), 31);
-        $.ajax({
-            type: 'POST',
-            url: '/api/post/view/',
-            beforeSend: function (request) {
-                request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
-            },
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({
-                "fingerprint": fingerprint,
-                "post_id": post_id
-            }),
-            success: function (res) {
+        console.log(fingerprint);
+        var http = new XMLHttpRequest();
+        http.open('POST', '/api/post/view/', true);
+        http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
+        http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        http.onreadystatechange = function () {
+            if (http.readyState === 4 && http.status === 200) {
                 console.log("success view");
+            } else {
+                console.log(http.status);
             }
-            ,
-            error: function (res) {
-                console.log(res);
-            }
-        })
-        ;
+        }
+        http.send(JSON.stringify({
+            "fingerprint": fingerprint,
+            "post_id": post_id
+        }));
     });
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    let post_id = $('.post_id_value').attr('id');
-    $('body').on('click', '#useful', function () {usefull(true, post_id)});
-    $('body').on('click', '#notuseful', function () {usefull(false, post_id)});
-    post_view(post_id);
+document.addEventListener("DOMContentLoaded", function (event) {
+        let post_id = document.getElementsByClassName('post_id_value')[0].id;
+        let useful = document.getElementById('useful');
+        useful.addEventListener('click', function () {
+            usefull(true, post_id)
+        });
+        let notuseful = document.getElementById('notuseful');
+        notuseful.addEventListener('click', function () {
+            usefull(false, post_id)
+        });
+        post_view(post_id);
     }
 );
