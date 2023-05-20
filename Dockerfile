@@ -1,10 +1,11 @@
-FROM node:12.7.0-alpine
+FROM node:20.2.0-alpine
 
 RUN mkdir /app
 
-# ADD package.json /app
-
 WORKDIR /app
 
-RUN apk --no-cache add git python automake make g++
+RUN apk --no-cache add git python3 automake make g++
+
+ADD package.json /app
+
 RUN npm install

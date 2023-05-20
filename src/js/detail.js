@@ -1,6 +1,6 @@
-require("popper.js/dist/popper");
-const Fingerprint2 = require("fingerprintjs2/fingerprint2");
-require("bootstrap.native/dist/bootstrap-native-v4");
+import _a from "popper.js/dist/popper";
+import Fingerprint2 from "fingerprintjs2/fingerprint2";
+import _ from "bootstrap.native/dist/bootstrap-native-v4";
 
 
 function getCookie(name) {
