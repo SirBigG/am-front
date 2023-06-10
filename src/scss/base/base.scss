@@ -23,13 +23,13 @@ body {
 @import "~bootstrap/scss/mixins";
 
 @import "~bootstrap/scss/mixins/breakpoints";
-@import "~bootstrap/scss/mixins/grid-framework";
 @import "~bootstrap/scss/mixins/grid";
 
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/utilities/api";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/vendor/rfs";
 
@@ -37,4 +37,3 @@ body {
 @import "~bootstrap/scss/card";
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/print";

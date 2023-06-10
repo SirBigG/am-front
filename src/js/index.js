@@ -1,1 +1,1 @@
-require("bootstrap.native/dist/bootstrap-native-v4");
+import  BSN from "bootstrap.native";

@@ -7,13 +7,12 @@ $breadcrumb-divider: quote(">") !default;
 @import "main";
 
 @import "~bootstrap/scss/mixins/pagination";
-@import "~bootstrap/scss/mixins/badge";
+@import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/mixins/forms";
 
 @import "~bootstrap/scss/card";
 @import "~bootstrap/scss/pagination";
 @import "~bootstrap/scss/breadcrumb";
-@import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/button-group";
 

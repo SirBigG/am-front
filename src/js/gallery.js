@@ -1,4 +1,4 @@
-require("bootstrap.native/dist/bootstrap-native-v4");
+import  BSN from "bootstrap.native";
 const SmartPhoto = require("smartphoto/js/smartphoto");
 
 window.addEventListener('DOMContentLoaded',function(){
