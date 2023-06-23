@@ -4,7 +4,6 @@ $card-border-radius: 0;
 @import "main";
 
 @import "~bootstrap/scss/card";
-@import "~bootstrap/scss/list-group";
 
 .card-img {
   filter: brightness(50%);
@@ -20,5 +19,7 @@ $card-border-radius: 0;
 }
 
 .no-decoration:hover {
-  color: white!important;
+  color: $yellow !important;
+  text-decoration: none;
+  transform: scale(1.1);
 }

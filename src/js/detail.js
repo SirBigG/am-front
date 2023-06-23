@@ -1,6 +1,4 @@
-import Fingerprint2 from "fingerprintjs2/fingerprint2";
-import  BSN from "bootstrap.native";
-
+import 'bootstrap/js/dist/dropdown';
 
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
@@ -10,52 +8,40 @@ function getCookie(name) {
 }
 
 function usefull(status, post_id) {
-    Fingerprint2.get(function (components) {
-        const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
-            return pair.value;
-        }).join(), 31);
-        var http = new XMLHttpRequest();
-        http.open('POST', '/api/post/useful/', true);
-        http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
-        http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-        http.onreadystatechange = function () {
-            if (http.readyState === 4 && http.status === 200) {
-                document.getElementById('useful__wrapper').innerHTML = '<span class="h6 text-success">Дякуємо за відгук! Ваш голос буде враховано при публікації контенту.</span>';
-            } else {
-                console.log(http.status);
-            }
+    let http = new XMLHttpRequest();
+    http.open('POST', '/api/post/useful/', true);
+    http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
+    http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    http.onreadystatechange = function () {
+        if (http.readyState === 4 && http.status === 200) {
+            document.getElementById('useful__wrapper').innerHTML = '<span class="h6 text-success">Дякуємо за відгук! Ваш голос буде враховано при публікації контенту.</span>';
+        } else {
+            console.log(http.status);
         }
-        http.send(JSON.stringify({
-            "fingerprint": fingerprint,
-            "post_id": post_id,
-            "is_useful": status
-        }));
-    });
+    }
+    http.send(JSON.stringify({
+        "fingerprint": "fingerprint",
+        "post_id": post_id,
+        "is_useful": status
+    }));
 }
 
 function post_view(post_id) {
-    Fingerprint2.get(function (components) {
-        "use strict";
-        const fingerprint = Fingerprint2.x64hash128(components.map(function (pair) {
-            return pair.value;
-        }).join(), 31);
-        console.log(fingerprint);
-        var http = new XMLHttpRequest();
-        http.open('POST', '/api/post/view/', true);
-        http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
-        http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-        http.onreadystatechange = function () {
-            if (http.readyState === 4 && http.status === 200) {
-                console.log("success view");
-            } else {
-                console.log(http.status);
-            }
+    let http = new XMLHttpRequest();
+    http.open('POST', '/api/post/view/', true);
+    http.setRequestHeader("X-CSRFToken", getCookie("csrftoken"),);
+    http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    http.onreadystatechange = function () {
+        if (http.readyState === 4 && http.status === 200) {
+            console.log("success view");
+        } else {
+            console.log(http.status);
         }
-        http.send(JSON.stringify({
-            "fingerprint": fingerprint,
-            "post_id": post_id
-        }));
-    });
+    }
+    http.send(JSON.stringify({
+        "fingerprint": "fingerprint",
+        "post_id": post_id
+    }));
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {

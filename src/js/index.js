@@ -1,1 +1,1 @@
-import  BSN from "bootstrap.native";
+import 'bootstrap/js/dist/dropdown';

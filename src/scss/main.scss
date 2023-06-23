@@ -100,12 +100,6 @@ body {
   font-size: 1.1rem;
 }
 
-.img-overlay {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
 
 .second-menu {
   flex-wrap: nowrap !important;
@@ -132,9 +126,14 @@ body {
 }
 
 .second-menu-container {
-  background-color: #00cc67;
+  background-color: $green;
 }
 
 .footer-copyright {
   background-color: #0f0f0f;
+}
+
+.no-decoration {
+  text-decoration: none;
+  outline: 0;
 }
